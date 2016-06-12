@@ -2,14 +2,14 @@
 
 'use strict';
 
-const pagespeed = require('./pagespeed');
+const dns = require('dns');
 const chalk = require('chalk');
 const isURL = require('is-url');
-const dns = require('dns');
 const ora = require('ora');
 const argv = require('minimist')(process.argv.slice(2));
 const logUpdate = require('log-update');
 const logSymbols = require('log-symbols');
+const pagespeed = require('./pagespeed');
 
 let url = argv._;
 
