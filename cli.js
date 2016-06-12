@@ -2,45 +2,70 @@
 
 'use strict';
 
-const pagespeed   = require('./pagespeed');
-const chalk       = require('chalk');
-const meow        = require('meow');
-const ora         = require('ora');
-const argv        = require('minimist')(process.argv.slice(2));
-const logUpdate   = require('log-update');
-const logSymbols  = require('log-symbols');
-
-const cli = meow(`
-    Usage
-      $ pagespeed-score <url> <options>
-`);
+const pagespeed = require('./pagespeed');
+const chalk = require('chalk');
+const isURL = require('is-url');
+const dns = require('dns');
+const ora = require('ora');
+const argv = require('minimist')(process.argv.slice(2));
+const logUpdate = require('log-update');
+const logSymbols = require('log-symbols');
 
 let url = argv._;
+
+if (process.argv[2] === undefined) {
+	console.log(chalk.cyan.bold('\n Usage: '));
+	console.log('   pagespeed-score <url> <options>');
+	console.log(chalk.green.bold('\n Options: '));
+	console.log('   --mobile 	                Analyze the URL for mobile devices.');
+	console.log('   --filter-third-party 	Indicates if third party resources should be filtered out before PageSpeed analysis\n');
+	console.log(chalk.blue.bold(' Example: '));
+	console.log('   pagespeed-score https://google.com\n');
+	process.exit(1);
+}
+
+if (isURL(process.argv[2]) === false) {
+	console.log(chalk.bold.red('\n The given URL was not valid.\n'));
+	process.exit(1);
+}
+
+const regex = /\/\/([^\/,\s]+\.[^\/,\s]+?)(?=\/|,|\s|$|\?|#)/g;
+const input = process.argv[2];
+const extract = regex.exec(input);
+const urlPart = extract[1];
+
+const spinner = ora();
+
+dns.lookup(urlPart, err => {
+	if (err && err.code === 'ENOTFOUND') {
+		spinner.stop();
+		console.log(chalk.bold.red(' Please check you internet connection.\n'));
+		process.exit(1);
+	}
+});
+
 let strategy = (argv.mobile === true) ? 'mobile' : 'desktop';
 let locale = ((typeof argv.locale === 'string')) ? argv.locale : 'en_US';
 let filterThirdParty = (argv['filter-third-party'] === true) ? 'true' : 'false';
 
-const spinner = ora({
-  color: 'grey',
-  text: chalk.grey.dim('Calculating...')
-});
-
+console.log();
 spinner.start();
+spinner.text = chalk.cyan.bold('Calculating...please wait!');
 
 pagespeed(url, strategy, locale, filterThirdParty).then(response => {
-  let score = response.ruleGroups.SPEED.score;
-  
-  let message;
+	let score = response.ruleGroups.SPEED.score;
 
-  if (score < 50) {
-    message = chalk.red.bold(logSymbols.error + ' Score: ' + score);
-  } else if (score < 80) {
-    message = chalk.yellow.bold(logSymbols.warning + ' Score: ' + score);
-  } else {
-    message = chalk.green.bold(logSymbols.success + ' Score: ' + score);
-  };
+	let message;
 
-  spinner.stop();
+	if (score < 50) {
+		message = chalk.red.bold('  Status      :', logSymbols.error, '\n  Total Score : ' + score);
+	} else if (score < 80) {
+		message = chalk.yellow.bold('  Status      :', logSymbols.warning, '\n  Total Score : ' + score);
+	} else {
+		message = chalk.green.bold('  Status      :', logSymbols.success, '\n  Total Score : ' + score);
+	}
 
-  logUpdate(message);
+	spinner.stop();
+	logUpdate(message);
+	console.log();
 });
