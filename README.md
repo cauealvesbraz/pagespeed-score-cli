@@ -2,7 +2,11 @@
 
 > Check the score of a website analyzed by Pagespeed Insights.
 
-![Example](screenshot.gif)
+<br />
+
+<p align="center">
+  <img width="80%" src="./screenshot.gif?raw=true" />
+</p>
 
 ## Install 
 
