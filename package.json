@@ -1,7 +1,7 @@
 {
   "name": "pagespeed-score-cli",
-  "version": "1.0.0",
-  "description": "Check the score of a website analyzed by Pagespeed Insights.",
+  "version": "1.0.1",
+  "description": "Check the score of a website analyzed by PagesPeed Insights.",
   "license": "MIT",
   "author": {
     "name": "Cauê Alves",
