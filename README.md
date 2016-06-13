@@ -10,9 +10,14 @@
 
 ## Install 
 
-Via [Node.js](https://nodejs.org) run the following:
-```bash
+```ENSURE YOU'VE NODEJS VERSION >=4 INSTALLED, THEN RUN THE FOLLOWING :```
+
+```
 $ npm i --global pagespeed-score-cli
+```
+__OR__
+```
+$ sudo npm i --global pagespeed-score-cli
 ```
 
 ## Usage
