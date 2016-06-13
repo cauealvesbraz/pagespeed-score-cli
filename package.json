@@ -37,7 +37,8 @@
     "minimist": "^1.2.0",
     "node-fetch": "^1.5.3",
     "ora": "^0.2.3",
-    "is-url": "*"
+    "is-url": "*",
+    "update-notifier": "*"
   },
   "devDependencies": {
   	"xo": "*",
