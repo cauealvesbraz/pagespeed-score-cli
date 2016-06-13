@@ -33,14 +33,9 @@ if (isURL(url) === false) {
   process.exit(1);
 }
 
-const regex = /\/\/([^\/,\s]+\.[^\/,\s]+?)(?=\/|,|\s|$|\?|#)/g;
-const input = process.argv[2];
-const extract = regex.exec(input);
-const urlPart = extract[1];
-
 const spinner = ora();
 
-dns.lookup(urlPart, err => {
+dns.lookup('www.google.com', err => {
   if (err && err.code === 'ENOTFOUND') {
     spinner.stop();
     console.log(chalk.bold.red(' Please check you internet connection.\n'));
