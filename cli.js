@@ -9,7 +9,11 @@ const ora = require('ora');
 const argv = require('minimist')(process.argv.slice(2));
 const logUpdate = require('log-update');
 const logSymbols = require('log-symbols');
+const updateNotifier = require('update-notifier');
 const pagespeed = require('./pagespeed');
+
+const pkg = require('./package.json');
+updateNotifier({pkg}).notify();
 
 let url = argv._;
 
