@@ -11,6 +11,10 @@ const logUpdate = require('log-update');
 const logSymbols = require('log-symbols');
 const pagespeed = require('./pagespeed');
 
+const updateNotifier = require('update-notifier');
+const pkg = require('./package.json');
+updateNotifier({pkg}).notify();
+
 let url = argv._;
 
 if (!url.length || argv.help === true) {
