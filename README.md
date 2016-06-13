@@ -1,6 +1,6 @@
 # pagespeed-score-cli [![Build Status](https://travis-ci.org/cauealves/pagespeed-score-cli.svg?branch=master)](https://travis-ci.org/cauealves/pagespeed-score-cli)
 
-> Check the score of a website analyzed by Pagespeed Insights.
+> Check the score of a website analyzed by PageSpeed Insights.
 
 <br />
 
