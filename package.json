@@ -1,6 +1,6 @@
 {
   "name": "pagespeed-score-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Check the score of a website analyzed by PagesPeed Insights.",
   "license": "MIT",
   "author": {
