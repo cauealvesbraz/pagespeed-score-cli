@@ -12,7 +12,7 @@
     "pagespeed-score": "cli.js"
   },
   "engines": {
-  	"node": ">=4"
+    "node": ">=4"
   },
   "scripts": {
     "test": "xo --space && ava"
@@ -41,11 +41,12 @@
     "update-notifier": "*"
   },
   "devDependencies": {
-  	"xo": "*",
-  	"ava": "*"
+    "ava": "*",
+    "execa": "^0.4.0",
+    "xo": "*"
   },
   "bugs": {
-  	"url": "https://github.com/cauealves/pagespeed-score-cli/issues"
+    "url": "https://github.com/cauealves/pagespeed-score-cli/issues"
   },
   "homepage": "https://github.com/cauealves/pagespeed-score-cli#readme"
 }

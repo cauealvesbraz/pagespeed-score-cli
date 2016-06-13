@@ -1,13 +1,6 @@
-import childProcess from 'child_process';
 import test from 'ava';
+import execa from 'execa';
 
-test.cb(t => {
-  const cp = childProcess.spawn('./cli.js', {stdio: 'inherit'});
-
-  cp.on('error', t.ifError);
-
-  cp.on('close', code => {
-    t.is(code, 0);
-    t.end();
-  });
+test('with a invalid URL should be an exception', t => {
+  t.throws(execa('./cli.js', ['cauealves.com']), /The given URL was not valid./);
 });
