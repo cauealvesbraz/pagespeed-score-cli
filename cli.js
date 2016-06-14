@@ -13,9 +13,15 @@ const updateNotifier = require('update-notifier');
 const pagespeed = require('./pagespeed');
 
 const pkg = require('./package.json');
+
 updateNotifier({pkg}).notify();
 
 let url = argv._;
+
+if (argv.version && pkg.version !== false) {
+  console.log(pkg.version);
+  process.exit(0);
+}
 
 if (!url.length || argv.help === true) {
   console.log(chalk.cyan.bold('\n Usage: '));
