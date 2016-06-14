@@ -56,7 +56,7 @@ pagespeed(url, strategy, locale, filterThirdParty).then(response => {
 
   let message;
 
-  if (score < 50) {
+  if (score < 21) {
     message = chalk.red.bold('  Status      :', logSymbols.error, '\n  Total Score : ' + score);
   } else if (score < 80) {
     message = chalk.yellow.bold('  Status      :', logSymbols.warning, '\n  Total Score : ' + score);
