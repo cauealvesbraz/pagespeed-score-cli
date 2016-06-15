@@ -1,0 +1,7 @@
+.gitignore
+.jscs.json
+.jshintrc
+.travis.yml
+gulpFile.js
+examples/
+src

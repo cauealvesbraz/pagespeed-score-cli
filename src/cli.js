@@ -13,7 +13,7 @@ const logSymbols = require('log-symbols');
 const updateNotifier = require('update-notifier');
 const pagespeed = require('./pagespeed');
 
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 updateNotifier({pkg}).notify();
 
 let url = argv._;

@@ -20,6 +20,9 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+#Distributions
+dist
+
 # node-waf configuration
 .lock-wscript
 

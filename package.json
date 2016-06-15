@@ -9,13 +9,11 @@
     "url": "cauealves.com"
   },
   "bin": {
-    "pagespeed-score": "cli.js"
-  },
-  "engines": {
-  	"node": ">=4"
+    "pagespeed-score": "./dist/cli.js"
   },
   "scripts": {
-    "test": "xo --space && ava"
+    "build": "gulp check",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -41,11 +39,22 @@
     "update-notifier": "*"
   },
   "devDependencies": {
-  	"xo": "*",
-  	"ava": "*"
+    "ava": "^0.15.2",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-ava": "^0.12.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jscs-stylish": "^1.4.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-notify": "^2.2.0",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "xo": "^0.15.1"
   },
   "bugs": {
-  	"url": "https://github.com/cauealves/pagespeed-score-cli/issues"
+    "url": "https://github.com/cauealves/pagespeed-score-cli/issues"
   },
   "homepage": "https://github.com/cauealves/pagespeed-score-cli#readme"
 }
