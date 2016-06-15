@@ -1,13 +1,11 @@
 'use strict';
 const gulp = require('gulp');
-const notify = require('gulp-notify');
 const jscs = require('gulp-jscs');
 const jshint = require('gulp-jshint');
 const ava = require('gulp-ava');
 const babel = require('gulp-babel');
 const files = ['*.js','src/*.js'];
 
-gulp.watch(files, ['check']);
 
 gulp.task('transpile',['transpileTestFile'],function() {
   return gulp.src('src/*.js')
@@ -40,10 +38,4 @@ gulp.task('test',['lint'],function() {
               .pipe(ava());
 });
 
-gulp.task('check', ['test'],function() {
-  return gulp.src('/')
-              .pipe(notify({
-                title: 'Task Builder',
-                message: 'Successfully built application'
-              }));
-});
+gulp.task('check', ['test']);
