@@ -57,20 +57,40 @@ console.log();
 spinner.start();
 spinner.text = chalk.cyan.bold('Calculating, please wait...');
 
-pagespeed(url, strategy, locale, filterThirdParty).then(response => {
-  let score = response.ruleGroups.SPEED.score;
+pagespeed(url, strategy, locale, filterThirdParty).then((response) => {
+  if (response.error && response.error.code === 400) {
+    spinner.stop();
+    logUpdate(chalk.red.bold(
+      'Could not resolve the URL: ' + chalk.blue.bold(url) + ' \nPlease, check the spelling or make sure is accessible.\n'
+    ));
+  }
+
+  let isToShowUsabilityScore = (strategy === 'mobile');
+
+  let speedScore = response.ruleGroups.SPEED.score;
 
   let message;
 
-  if (score < 21) {
-    message = chalk.red.bold('  Status      :', logSymbols.error, '\n  Total Score : ' + score);
-  } else if (score < 80) {
-    message = chalk.yellow.bold('  Status      :', logSymbols.warning, '\n  Total Score : ' + score);
+  if (speedScore < 21) {
+    message = chalk.red.bold('  Status      :', logSymbols.error, '\n  Speed Score : ' + speedScore);
+  } else if (speedScore < 80) {
+    message = chalk.yellow.bold('  Status      :', logSymbols.warning, '\n  Speed Score : ' + speedScore);
   } else {
-    message = chalk.green.bold('  Status      :', logSymbols.success, '\n  Total Score : ' + score);
+    message = chalk.green.bold('  Status      :', logSymbols.success, '\n  Speed Score : ' + speedScore);
+  }
+
+  if (isToShowUsabilityScore) {
+    let usabilityScore = response.ruleGroups.USABILITY.score;
+
+    if (usabilityScore < 21) {
+      message += chalk.red.bold('\n  Usability   : ' + usabilityScore);
+    } else if (usabilityScore < 80) {
+      message += chalk.yellow.bold('\n  Usability   : ' + usabilityScore);
+    } else {
+      message += chalk.green.bold('\n  Usability   : ' + usabilityScore);
+    }
   }
 
   spinner.stop();
-  logUpdate(message);
-  console.log();
+  logUpdate(message + '\n');
 });
