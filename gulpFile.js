@@ -21,8 +21,8 @@ gulp.task('transpileTestFile',function() {
               .pipe(babel({
                 presets: ['es2015']
               }))
-              .pipe(gulp.dest('testFile.js'));
-})
+              .pipe(gulp.dest('tests'));
+});
 gulp.task('jscs', ['transpile'],function() {
   return gulp.src(files)
               .pipe(jscs());
@@ -36,7 +36,7 @@ gulp.task('lint', ['jscs'],function() {
 });
 
 gulp.task('test',['lint'],function() {
-  return gulp.src('testFile.js')
+  return gulp.src('tests/test.js')
               .pipe(ava());
 });
 
