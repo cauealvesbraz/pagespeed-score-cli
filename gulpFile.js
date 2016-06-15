@@ -1,10 +1,10 @@
 'use strict';
-const gulp = require('gulp');
-const jscs = require('gulp-jscs');
-const jshint = require('gulp-jshint');
-const ava = require('gulp-ava');
-const babel = require('gulp-babel');
-const files = ['*.js','src/*.js'];
+var gulp = require('gulp');
+var jscs = require('gulp-jscs');
+var jshint = require('gulp-jshint');
+var ava = require('gulp-ava');
+var babel = require('gulp-babel');
+var files = ['*.js','src/*.js'];
 
 
 gulp.task('transpile',['transpileTestFile'],function() {
