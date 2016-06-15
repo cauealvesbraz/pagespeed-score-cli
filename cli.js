@@ -57,7 +57,7 @@ console.log();
 spinner.start();
 spinner.text = chalk.cyan.bold('Calculating, please wait...');
 
-pagespeed(url, strategy, locale, filterThirdParty).then((response) => {
+pagespeed(url, strategy, locale, filterThirdParty).then(response => {
   if (response.error && response.error.code === 400) {
     spinner.stop();
     logUpdate(chalk.red.bold(
