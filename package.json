@@ -33,7 +33,6 @@
     "dns": "^0.2.2",
     "log-symbols": "^1.0.2",
     "log-update": "^1.0.2",
-    "meow": "^3.7.0",
     "minimist": "^1.2.0",
     "node-fetch": "^1.5.3",
     "ora": "^0.2.3",
