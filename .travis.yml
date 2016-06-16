@@ -1,4 +1,6 @@
-sudo: required
+# See https://docs.travis-ci.com/user/workers/container-based-infrastructure/ it has significant advanatage over
+# this https://docs.travis-ci.com/user/workers/standard-infrastructure
+sudo: false
 
 language: node_js
 
