@@ -11,6 +11,9 @@
   "bin": {
     "pagespeed-score": "cli.js"
   },
+  "xo": {
+    "space": true
+  },
   "engines": {
     "node": ">=4"
   },

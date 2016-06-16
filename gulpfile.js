@@ -6,9 +6,7 @@ var ava = require('gulp-ava');
 
 gulp.task('xo', function () {
   return gulp.src('*.js')
-              .pipe(xo({
-                spaces: true
-              }));
+              .pipe(xo());
 });
 
 gulp.task('ava', ['xo'], function () {
@@ -16,4 +14,4 @@ gulp.task('ava', ['xo'], function () {
               .pipe(ava());
 });
 
-gulp.task('test', ['test']);
+gulp.task('test', ['ava']);
