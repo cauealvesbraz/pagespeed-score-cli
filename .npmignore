@@ -1,8 +1,6 @@
 .gitignore
-.jscs.json
-.jshintrc
 .travis.yml
+.editorconfig
 gulpFile.js
 test.js
 screenshot.gif
-LICENSE
