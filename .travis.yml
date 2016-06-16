@@ -1,7 +1,9 @@
-sudo: required
+#This allows travis to use caches for pulic repo and use container for deplyment
+#See :- https://docs.travis-ci.com/user/workers/standard-infrastructure & https://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
 
 language: node_js
 
 node_js:
-  - '6'
-  - '4'
+  - "4"
+  - "6"

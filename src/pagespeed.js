@@ -2,6 +2,8 @@
 
 'use strict';
 
+require("babel-polyfill");
+
 const fetch = require('node-fetch');
 
 const API_URL = 'https://www.googleapis.com/pagespeedonline/v2/runPagespeed?';
