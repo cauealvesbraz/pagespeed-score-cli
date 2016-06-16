@@ -2,6 +2,8 @@
 
 'use strict';
 
+require("babel-polyfill");
+
 const fetch = require('node-fetch');
 
 const API_URL = 'https://www.googleapis.com/pagespeedonline/v2/runPagespeed?';
@@ -14,7 +16,7 @@ module.exports = function (url, strategy, locale, filterThirdParty) {
     'filter_third_party_resources=' + filterThirdParty
   ].join('&');
 
-  return fetch(API_URL + query).then((response) => {
+  return fetch(API_URL + query).then(response => {
     return response.json();
   });
 };

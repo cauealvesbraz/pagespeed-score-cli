@@ -1,14 +1,17 @@
-
-import childProcess from 'child_process';
+require("babel-polyfill");
 import test from 'ava';
+import execa from 'execa';
+import {version} from '../package.json';
 
-test.cb(t => {
-  //after transpiling it will be in folder tests\ so we have to specify our core file as ../file insted of ./file
-  const cp = childProcess.spawn('node',['../dist/cli.js'],{stdio: 'inherit'});
-  cp.on('error', t.ifError);
+test('should have an error with an invalid URL', t => {
+  t.throws(execa('../dist/cli.js', ['cauealves.com']), /The given URL was not valid./);
+});
 
-  cp.on('close', code => {
-    t.is(code, 0);
-    t.end();
-  });
+test('should show the version when pass a parameter --version', async t => {
+  t.is(await execa.stdout('../dist/cli.js', ['--version']), version);
+});
+
+test('should have an error with an invalid public domain', async t => {
+  let errorMessage = await execa.stdout('./dist/cli.js', ['http://cauealves.cmo']);
+  t.is(errorMessage, '\n\u001b[?25lCould not resolve the URL: http://cauealves.cmo \nPlease, check the spelling or make sure is accessible.\n\n\u001b[?25h');
 });

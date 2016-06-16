@@ -1,26 +1,23 @@
 'use strict';
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
-var jshint = require('gulp-jshint');
+var eslint = require('gulp-eslint');
 var ava = require('gulp-ava');
 var babel = require('gulp-babel');
-var files = ['*.js','src/*.js'];
+var files = ['*.js','dist/*.js'];
 
 
-gulp.task('transpile',['transpileTestFile'],function() {
+gulp.task('transpile',['transpileTest'],function() {
   return gulp.src('src/*.js')
-              .pipe(babel({
-                presets: ['es2015']
-              }))
+              .pipe(babel())
               .pipe(gulp.dest('dist'));
 });
-gulp.task('transpileTestFile',function() {
-  return gulp.src('test.js')
-              .pipe(babel({
-                presets: ['es2015']
-              }))
+gulp.task("transpileTest",function() {
+  return gulp.src("test.js")
+              .pipe(babel())
               .pipe(gulp.dest('tests'));
-});
+
+  })
 gulp.task('jscs', ['transpile'],function() {
   return gulp.src(files)
               .pipe(jscs());
@@ -28,13 +25,23 @@ gulp.task('jscs', ['transpile'],function() {
 
 gulp.task('lint', ['jscs'],function() {
   return gulp.src(files)
-              .pipe(jshint())
-              .pipe(jshint.reporter('jshint-stylish'))
-              .pipe(jshint.reporter('fail'));
+              .pipe(eslint(
+                  {
+                    "parser": "babel-eslint",
+                    "parserOptions": {
+                      "sourceType": "module"
+                    },
+                    env:{
+                      node:true
+                    }
+                  }
+              ))
+              .pipe(eslint.format())
+              .pipe(eslint.failAfterError());
 });
 
 gulp.task('test',['lint'],function() {
-  return gulp.src('tests/test.js')
+  return gulp.src('tests/*.js')
               .pipe(ava());
 });
 

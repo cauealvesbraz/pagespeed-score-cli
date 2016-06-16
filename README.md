@@ -1,4 +1,5 @@
-# pagespeed-score-cli [![Build Status](https://travis-ci.org/cauealves/pagespeed-score-cli.svg?branch=master)](https://travis-ci.org/cauealves/pagespeed-score-cli)
+# pagespeed-score-cli [![Build Status](https://travis-ci.org/cauealves/pagespeed-score-cli.svg?branch=master)](https://travis-ci.org/cauealves/pagespeed-score-cli) [![Dependency Status](https://david-dm.org/cauealves/pagespeed-score-cli.svg?style=flat-square)](https://david-dm.org/cauealves/pagespeed-score-cli) [![Npm Package Version](https://img.shields.io/npm/v/pagespeed-score-cli.svg?style=flat-square)](https://www.npmjs.org/package/pagespeed-score-cli)
+
 
 > Check the score of a website analyzed by PageSpeed Insights.
 

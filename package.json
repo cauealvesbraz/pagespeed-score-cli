@@ -1,6 +1,6 @@
 {
   "name": "pagespeed-score-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Check the score of a website analyzed by PagesPeed Insights.",
   "license": "MIT",
   "author": {
@@ -31,7 +31,6 @@
     "dns": "^0.2.2",
     "log-symbols": "^1.0.2",
     "log-update": "^1.0.2",
-    "meow": "^3.7.0",
     "minimist": "^1.2.0",
     "node-fetch": "^1.5.3",
     "ora": "^0.2.3",
@@ -40,16 +39,17 @@
   },
   "devDependencies": {
     "ava": "^0.15.2",
+    "babel-eslint": "^6.0.4",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "execa": "^0.4.0",
     "gulp": "^3.9.1",
     "gulp-ava": "^0.12.0",
     "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^2.0.0",
     "gulp-jscs": "^3.0.2",
     "gulp-jscs-stylish": "^1.4.0",
-    "gulp-jshint": "^2.0.1",
-    "jshint": "^2.9.2",
-    "jshint-stylish": "^2.2.0",
     "xo": "^0.15.1"
   },
   "bugs": {
