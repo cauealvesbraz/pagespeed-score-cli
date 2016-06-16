@@ -15,7 +15,8 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo --space && ava"
+    "test": "gulp test",
+    "prepublish": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,9 @@
   "devDependencies": {
     "ava": "*",
     "execa": "^0.4.0",
+    "gulp": "^3.9.1",
+    "gulp-ava": "^0.12.0",
+    "gulp-xo": "^0.12.0",
     "xo": "*"
   },
   "bugs": {
