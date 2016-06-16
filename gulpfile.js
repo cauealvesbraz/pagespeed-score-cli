@@ -16,4 +16,4 @@ gulp.task('ava', ['xo'], function () {
               .pipe(ava());
 });
 
-gulp.task('check', ['test']);
+gulp.task('test', ['test']);
