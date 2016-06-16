@@ -35,7 +35,7 @@ gulp.task('lint', ['jscs'],function() {
 });
 
 gulp.task('test',['lint'],function() {
-  return gulp.src('tests/*.js')
+  return gulp.src('test.js')
               .pipe(ava());
 });
 
