@@ -7,17 +7,11 @@ var babel = require('gulp-babel');
 var files = ['*.js','dist/*.js'];
 
 
-gulp.task('transpile',['transpileTest'],function() {
+gulp.task('transpile',function() {
   return gulp.src('src/*.js')
               .pipe(babel())
               .pipe(gulp.dest('dist'));
 });
-gulp.task("transpileTest",function() {
-  return gulp.src("test.js")
-              .pipe(babel())
-              .pipe(gulp.dest('tests'));
-
-  })
 gulp.task('jscs', ['transpile'],function() {
   return gulp.src(files)
               .pipe(jscs());
