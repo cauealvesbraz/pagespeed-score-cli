@@ -1,0 +1,8 @@
+.gitignore
+.jscs.json
+.jshintrc
+.travis.yml
+gulpFile.js
+test.js
+screenshot.gif
+LICENSE
