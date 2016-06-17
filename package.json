@@ -11,11 +11,16 @@
   "bin": {
     "pagespeed-score": "cli.js"
   },
+  "files":[
+    "cli.js",
+    "pagespeed.js"
+  ],
   "engines": {
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo --space && ava"
+    "test": "xo && ava",
+    "prepublish": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -47,5 +52,8 @@
   "bugs": {
     "url": "https://github.com/cauealves/pagespeed-score-cli/issues"
   },
-  "homepage": "https://github.com/cauealves/pagespeed-score-cli#readme"
+  "homepage": "https://github.com/cauealves/pagespeed-score-cli#readme",
+  "xo": {
+    "space": true
+  }
 }
