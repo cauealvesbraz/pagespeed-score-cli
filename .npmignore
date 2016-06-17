@@ -1,6 +1,0 @@
-.gitignore
-.travis.yml
-.editorconfig
-gulpFile.js
-test.js
-screenshot.gif

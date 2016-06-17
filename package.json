@@ -11,10 +11,10 @@
   "bin": {
     "pagespeed-score": "cli.js"
   },
-  "xo": {
-    "space": true,
-    "env":["node"]
-  },
+  "files":[
+    "cli.js",
+    "pagespeed.js"
+  ],
   "engines": {
     "node": ">=4"
   },
@@ -52,5 +52,8 @@
   "bugs": {
     "url": "https://github.com/cauealves/pagespeed-score-cli/issues"
   },
-  "homepage": "https://github.com/cauealves/pagespeed-score-cli#readme"
+  "homepage": "https://github.com/cauealves/pagespeed-score-cli#readme",
+  "xo": {
+    "space": true
+  }
 }
