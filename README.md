@@ -13,12 +13,12 @@
 
 Ensure you've [Node.js](https://nodejs.org) version >=4 installed, then run the following:
 
-```
+``` sh
 $ [sudo] npm install --global pagespeed-score-cli
 ```
 
 ## Usage
-```
+``` sh
   Usage
     $ pagespeed-score <url> <options>
 
@@ -30,6 +30,8 @@ $ [sudo] npm install --global pagespeed-score-cli
    	$ pagespeed-score https://google.com
 ```
 
+## Contributor Guide
+[Contributor guide]()
 ## License
 
 MIT © [Cauê Alves](http://cauealves.com)
