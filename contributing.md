@@ -11,7 +11,7 @@ $ git clone https://github.com/<your-username>/pagespeed-score-cli.git
 
 ```
 
-One cloned completely. Change your current working directory to project directory.
+Once cloned completely. Change your current working directory to project directory.
 
 After that you need to install packages used for this project.
 
@@ -25,7 +25,11 @@ This will install all packages required.
 
 Now in your terminal you can run this to get moving.
 ``` sh
-$ pagespeed-score 
+$ ./cli.js 
+```
+Alternatively you can run 
+``` sh
+$ node cli.js
 ```
 Now follow general github contributing guidelines like make a new branch and do your all work there .
 
