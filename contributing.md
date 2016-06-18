@@ -34,6 +34,7 @@ Before submitting pull request
 - Run `npm test` it will execute tests and see if all tests passes or not.
     1. If passed feel free to submit a PR.
     2. If not fix those errors/failed test cases.
+       
        > "Window user might see errors like `Can't Spawn undefined ENOENT`". Its error with windows file system
           and you should not worry about it and submit a PR.
           If there is any other error other than these then fix them :).

@@ -31,7 +31,7 @@ $ [sudo] npm install --global pagespeed-score-cli
 ```
 
 ## Contributor Guide
-[Contributor guide]()
+[Contributor guide](https://github.com/cauealves/pagespeed-score-cli/blob/master/contributing.md)
 ## License
 
 MIT © [Cauê Alves](http://cauealves.com)
