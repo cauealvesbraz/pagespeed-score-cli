@@ -15,13 +15,14 @@ One cloned completely. Change your current working directory to project director
 
 After that you need to install packages used for this project.
 
-Run in your terminal:-
+In your terminal:-
 
 ``` sh
 $ npm install
 ```
 
 This will install all packages required.
+
 Now in your terminal you can run this to get moving.
 ``` sh
 $ pagespeed-score 
