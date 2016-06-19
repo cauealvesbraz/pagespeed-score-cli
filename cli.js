@@ -24,18 +24,22 @@ if (argv.version && pkg.version !== false) {
 }
 
 if (!url.length || argv.help === true) {
-  console.log(chalk.cyan.bold('\n Usage: '));
-  console.log('   pagespeed-score <url> <options>');
-  console.log(chalk.green.bold('\n Options: '));
-  console.log('   --mobile                  Analyze the URL for mobile devices.');
-  console.log('   --filter-third-party      Indicates if third party resources should be filtered out before PageSpeed analysis\n');
-  console.log(chalk.blue.bold(' Example: '));
-  console.log('   pagespeed-score https://google.com\n');
+  console.log(`
+    ${chalk.cyan.bold('Usage:')}
+      pagespeed-score <url> <options>
+
+    ${chalk.green.bold('Options:')}
+      --mobile                  Analyze the URL for mobile devices.
+      --filter-third-party      Indicates if third party resources should be filtered out before PageSpeed analysis
+
+    ${chalk.blue.bold('Example:')}
+      pagespeed-score https://google.com
+  `);
   process.exit(0);
 }
 
 if (isURL(url) === false) {
-  console.log(chalk.bold.red('\n The given URL was not valid.\n'));
+  console.log(`${chalk.bold.red('The given URL was not valid.')}`);
   process.exit(1);
 }
 
@@ -44,7 +48,7 @@ const spinner = ora();
 dns.lookup('www.google.com', err => {
   if (err && err.code === 'ENOTFOUND') {
     spinner.stop();
-    console.log(chalk.bold.red(' Please check you internet connection.\n'));
+    console.log(chalk.bold.red('Please check you internet connection.'));
     process.exit(1);
   }
 });
@@ -53,16 +57,16 @@ let strategy = (argv.mobile === true) ? 'mobile' : 'desktop';
 let locale = ((typeof argv.locale === 'string')) ? argv.locale : 'en_US';
 let filterThirdParty = (argv['filter-third-party'] === true) ? 'true' : 'false';
 
-console.log();
 spinner.start();
 spinner.text = chalk.cyan.bold('Calculating, please wait...');
 
 pagespeed(url, strategy, locale, filterThirdParty).then(response => {
   if (response.error && response.error.code === 400) {
     spinner.stop();
-    logUpdate(chalk.red.bold(
-      'Could not resolve the URL: ' + chalk.blue.bold(url) + ' \nPlease, check the spelling or make sure is accessible.\n'
-    ));
+    logUpdate(
+      chalk.red.bold(`Could not resolve the URL: ${chalk.blue.bold(url)}
+Please, check the spelling or make sure is accessible.'`)
+    );
   }
 
   let isToShowUsabilityScore = (strategy === 'mobile');
@@ -72,25 +76,29 @@ pagespeed(url, strategy, locale, filterThirdParty).then(response => {
   let message;
 
   if (speedScore < 21) {
-    message = chalk.red.bold('  Status      :', logSymbols.error, '\n  Speed Score : ' + speedScore);
+    message = chalk.red.bold(`${logSymbols.error} Score: ${speedScore}`);
   } else if (speedScore < 80) {
-    message = chalk.yellow.bold('  Status      :', logSymbols.warning, '\n  Speed Score : ' + speedScore);
+    message = chalk.yellow.bold(`${logSymbols.warning} Score: ${speedScore}`);
   } else {
-    message = chalk.green.bold('  Status      :', logSymbols.success, '\n  Speed Score : ' + speedScore);
+    message = chalk.green.bold(`${logSymbols.success} Score: ${speedScore}`);
   }
 
   if (isToShowUsabilityScore) {
     let usabilityScore = response.ruleGroups.USABILITY.score;
 
     if (usabilityScore < 21) {
-      message += chalk.red.bold('\n  Usability   : ' + usabilityScore);
+      message += chalk.red.bold(`
+${logSymbols.success} Usability: ${usabilityScore}`
+      );
     } else if (usabilityScore < 80) {
-      message += chalk.yellow.bold('\n  Usability   : ' + usabilityScore);
+      message += chalk.yellow.bold(`
+${logSymbols.success} Usability: ${usabilityScore}`);
     } else {
-      message += chalk.green.bold('\n  Usability   : ' + usabilityScore);
+      message += chalk.green.bold(`
+${logSymbols.success} Usability: ${usabilityScore}`);
     }
   }
 
   spinner.stop();
-  logUpdate(message + '\n');
+  logUpdate(message);
 });

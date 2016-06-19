@@ -14,7 +14,5 @@ module.exports = function (url, strategy, locale, filterThirdParty) {
     'filter_third_party_resources=' + filterThirdParty
   ].join('&');
 
-  return fetch(API_URL + query).then(response => {
-    return response.json();
-  });
+  return fetch(API_URL + query).then(response => response.json());
 };
