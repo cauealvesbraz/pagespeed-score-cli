@@ -2,6 +2,7 @@
 
 'use strict';
 
+const dns = require('dns');
 const chalk = require('chalk');
 const isURL = require('is-url');
 const ora = require('ora');
