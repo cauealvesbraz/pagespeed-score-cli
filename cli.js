@@ -16,7 +16,7 @@ const pkg = require('./package.json');
 
 updateNotifier({pkg}).notify();
 
-let url = argv._;
+const url = argv._;
 
 if (argv.version && pkg.version !== false) {
   console.log(pkg.version);
