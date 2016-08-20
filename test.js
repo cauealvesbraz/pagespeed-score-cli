@@ -11,6 +11,6 @@ test('should show the version when pass a parameter --version', async t => {
 });
 
 test('should have an error with an invalid public domain', async t => {
-  let errorMessage = await execa.stdout('./cli.js', ['http://cauealves.cmo']);
+  const errorMessage = await execa.stdout('./cli.js', ['http://cauealves.cmo']);
   t.is(errorMessage, '\u001b[?25lCould not resolve the URL: http://cauealves.cmo\nPlease, check the spelling or make sure is accessible.\'\n\u001b[?25h');
 });

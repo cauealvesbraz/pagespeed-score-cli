@@ -53,9 +53,9 @@ dns.lookup('www.google.com', err => {
   }
 });
 
-let strategy = (argv.mobile === true) ? 'mobile' : 'desktop';
-let locale = ((typeof argv.locale === 'string')) ? argv.locale : 'en_US';
-let filterThirdParty = (argv['filter-third-party'] === true) ? 'true' : 'false';
+const strategy = (argv.mobile === true) ? 'mobile' : 'desktop';
+const locale = ((typeof argv.locale === 'string')) ? argv.locale : 'en_US';
+const filterThirdParty = (argv['filter-third-party'] === true) ? 'true' : 'false';
 
 spinner.start();
 spinner.text = chalk.cyan.bold('Calculating, please wait...');
@@ -69,9 +69,8 @@ Please, check the spelling or make sure is accessible.'`)
     );
   }
 
-  let isToShowUsabilityScore = (strategy === 'mobile');
-
-  let speedScore = response.ruleGroups.SPEED.score;
+  const isToShowUsabilityScore = (strategy === 'mobile');
+  const speedScore = response.ruleGroups.SPEED.score;
 
   let message;
 
@@ -84,7 +83,7 @@ Please, check the spelling or make sure is accessible.'`)
   }
 
   if (isToShowUsabilityScore) {
-    let usabilityScore = response.ruleGroups.USABILITY.score;
+    const usabilityScore = response.ruleGroups.USABILITY.score;
 
     if (usabilityScore < 21) {
       message += chalk.red.bold(`
