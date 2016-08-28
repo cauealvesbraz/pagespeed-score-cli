@@ -31,7 +31,8 @@
     "performance",
     "analyze",
     "website",
-    "score"
+    "score",
+    "cli"
   ],
   "dependencies": {
     "chalk": "^1.1.3",
