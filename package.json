@@ -4,9 +4,7 @@
   "description": "Check the score of a website analyzed by PagesPeed Insights.",
   "license": "MIT",
   "author": {
-    "name": "Cauê Alves",
-    "email": "cauealveseng@gmail.com",
-    "url": "cauealves.com"
+    "name": "Cauê Alves"
   },
   "bin": {
     "pagespeed-score": "cli.js"
@@ -24,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cauealves/pagespeed-score-cli.git"
+    "url": "git+https://github.com/ceasbz/pagespeed-score-cli.git"
   },
   "keywords": [
     "pagespeed",
@@ -50,9 +48,9 @@
     "xo": "^0.16.0"
   },
   "bugs": {
-    "url": "https://github.com/cauealves/pagespeed-score-cli/issues"
+    "url": "https://github.com/ceasbz/pagespeed-score-cli/issues"
   },
-  "homepage": "https://github.com/cauealves/pagespeed-score-cli#readme",
+  "homepage": "https://github.com/ceasbz/pagespeed-score-cli#readme",
   "xo": {
     "space": true
   }
