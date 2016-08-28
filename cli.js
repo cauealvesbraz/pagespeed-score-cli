@@ -87,11 +87,11 @@ Please, check the spelling or make sure is accessible.'`)
 
     if (usabilityScore < 21) {
       message += chalk.red.bold(`
-${logSymbols.success} Usability: ${usabilityScore}`
+${logSymbols.error} Usability: ${usabilityScore}`
       );
     } else if (usabilityScore < 80) {
       message += chalk.yellow.bold(`
-${logSymbols.success} Usability: ${usabilityScore}`);
+${logSymbols.warning} Usability: ${usabilityScore}`);
     } else {
       message += chalk.green.bold(`
 ${logSymbols.success} Usability: ${usabilityScore}`);
