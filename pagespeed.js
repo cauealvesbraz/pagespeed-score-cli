@@ -4,10 +4,10 @@
 
 const fetch = require('node-fetch');
 
-const API_URL = 'https://www.googleapis.com/pagespeedonline/v2/runPagespeed?';
+const API_URL = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?';
 
 module.exports = function (url, strategy, locale, filterThirdParty) {
-  let query = [
+  const query = [
     'url=' + url,
     'strategy=' + strategy,
     'locale=' + locale,
